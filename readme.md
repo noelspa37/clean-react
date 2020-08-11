@@ -1,20 +1,22 @@
+[![Build Status](https://travis-ci.org/noelspa37/clean-react.svg?branch=master)](https://travis-ci.org/noelspa37/clean-react)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 
-# **4Dev React - Enquetes para Programadores**
+# **4Dev React - Centro para Programadores**
 
-[![alt text](./public/img/course-logo.png "Link para o treinamento")](https://www.udemy.com/course/)
+[![alt text](./public/img/course-logo.png "Link para el entrenamiento")](https://www.udemy.com/course/)
 
 ---
 
 ## [**Link para o curso completo**](https://www.udemy.com/course/)
 
-Essa sistema faz parte do treinamento do professor Rodrigo Manguinho (Mango) na Udemy.
+Este sistema es parte del entrenamiento del profesor Rodrigo Manguinho (Mango) en Udemy.
 
-O objetivo do treinamento é mostrar como criar um sistema em ReactJs utilizando os novos Hooks, com uma arquitetura bem definida e desacoplada, utilizando TDD (programação orientada a testes) como metodologia de trabalho, Clean Architecture para fazer a distribuição de responsabilidades em camadas, sempre seguindo os princípios do SOLID, DRY, YAGNI, KISS e aplicando Design Patterns para resolver alguns problemas comuns.
 
-## [**Link para a documentação da API**](http://fordevs.herokuapp.com/api-docs)
+El objetivo de este entrenamiento es mostrar como crear un sistema en ReacJs utilizando los nuevos Hooks, con una arquitectura bien definida y desacoplada, utilizando TDD (programacion orientada a pruebas) como metodolofía de trabajo, una Arquitectura Limpia para hacer la distribución de las responsabilidades en las capas, siempre siguiendo los principios SOLID, DRY, YAGNI, KISS y aplicando Patrones de Diseño para resolver algunos problemas comunes.
+
+## [**Link para la documentación de la API**](http://fordevs.herokuapp.com/api-docs)
 
 > ## Princípios
 
@@ -40,7 +42,7 @@ O objetivo do treinamento é mostrar como criar um sistema em ReactJs utilizando
 * Composition Root
 * Builder
 
-> ## Metodologias e Designs
+> ## Metodologias y Designs
 
 * TDD
 * Clean Architecture
@@ -55,7 +57,7 @@ O objetivo do treinamento é mostrar como criar um sistema em ReactJs utilizando
 * Continuous Delivery
 * Continuous Deployment
 
-> ## Bibliotecas e Ferramentas
+> ## Bibliotecas y herramientas
 
 * React
 * Typescript
@@ -75,7 +77,7 @@ O objetivo do treinamento é mostrar como criar um sistema em ReactJs utilizando
 * Eslint
 * Standard Javascript Style
 
-> ## Features do React
+> ## Características de React
 
 * React Testing Library
 * React Router
@@ -86,7 +88,7 @@ O objetivo do treinamento é mostrar como criar um sistema em ReactJs utilizando
 * Memo
 * Functional Components
 
-> ## Features do Git
+> ## Características de Git
 
 * Alias
 * Log Personalizado
@@ -105,7 +107,7 @@ O objetivo do treinamento é mostrar como criar um sistema em ReactJs utilizando
 * Shortlog
 * Status
 
-> ## Features do Typescript
+> ## Características de Typescript
 
 * POO Avançado
 * Interface
@@ -116,7 +118,7 @@ O objetivo do treinamento é mostrar como criar um sistema em ReactJs utilizando
 * Deploy
 * Generics
 
-> ## Features de Testes
+> ## Características de las pruebas
 
 * Testes Unitários
 * Testes de Integração
