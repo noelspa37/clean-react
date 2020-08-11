@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "ReactJS, Hooks, TDD, Clean Architecture, SOLID e Patterns",
   "autor": "Noel C.",
+  "license": "GNU GPL3",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
@@ -13,8 +14,6 @@
     "check": "npm-check -u -s"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@testing-library/react": "^10.4.8",
     "@types/axios": "^0.14.0",
