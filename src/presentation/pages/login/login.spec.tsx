@@ -4,7 +4,7 @@ import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import { render, RenderResult, fireEvent, cleanup, waitFor } from '@testing-library/react'
 import { Login } from '@/presentation/pages'
-import { ValidationStub, AuthenticationSpy } from '@/presentation/test'
+import { ValidationStub, AuthenticationSpy } from '@/presentation/test/'
 import faker from 'faker'
 import { InvalidCredentialsError } from '@/domain/errors'
 
