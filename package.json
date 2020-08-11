@@ -1,7 +1,8 @@
 {
   "name": "clean-react",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "ReactJS, Hooks, TDD, Clean Architecture, SOLID e Patterns",
+  "autor": "Noel C.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
