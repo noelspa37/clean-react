@@ -116,7 +116,7 @@ describe('SignUp Component', () => {
     Helper.testElementExist(sut, 'spinner')
   })
 
-  test('Should call Authentication with correct values ', async () => {
+  test('Should call AddAccount with correct values ', async () => {
     const { sut, addAccountSpy } = makeSut()
     const name = faker.name.findName()
     const email = faker.internet.email()
@@ -130,10 +130,17 @@ describe('SignUp Component', () => {
     })
   })
 
-  test('Should call Authentication only once ', async () => {
+  test('Should call AddAccount only once ', async () => {
     const { sut, addAccountSpy } = makeSut()
     await simulateValidSubmit(sut)
     await simulateValidSubmit(sut)
     expect(addAccountSpy.callsCount).toBe(1)
+  })
+
+  test('Should not call AddAccount if form is invalid ', async () => {
+    const validationError = faker.random.words()
+    const { sut, addAccountSpy } = makeSut({ validationError })
+    await simulateValidSubmit(sut)
+    expect(addAccountSpy.callsCount).toBe(0)
   })
 })
