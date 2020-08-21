@@ -2,12 +2,16 @@ import * as FormHelper from '../support/form-helper'
 import * as Http from '../support/signup-mocks'
 import faker from 'faker'
 
-const simulateValidSubmit = (): void => {
+const populateFields = (): void => {
   cy.getByTestId('name').focus().type(faker.random.alphaNumeric(7))
   cy.getByTestId('email').focus().type(faker.internet.email())
   const password = faker.random.alphaNumeric(7)
   cy.getByTestId('password').focus().type(password)
   cy.getByTestId('passwordConfirmation').focus().type(password)
+}
+
+const simulateValidSubmit = (): void => {
+  populateFields()
   cy.getByTestId('submit').click()
 }
 
@@ -65,6 +69,13 @@ describe('SignUp', () => {
 
   it('Should present UnexpectedError on 400', () => {
     Http.mockUnexpectedError()
+    simulateValidSubmit()
+    FormHelper.testMainError('Sucedio algo')
+    FormHelper.testUrl('/signup')
+  })
+
+  it('Should present UnexpectedError if invalid data is returned', () => {
+    Http.mockInvalidData()
     simulateValidSubmit()
     FormHelper.testMainError('Sucedio algo')
     FormHelper.testUrl('/signup')
