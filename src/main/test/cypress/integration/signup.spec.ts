@@ -62,4 +62,11 @@ describe('SignUp', () => {
     FormHelper.testMainError('Ese email ya está registrado')
     FormHelper.testUrl('/signup')
   })
+
+  it('Should present UnexpectedError on 400', () => {
+    Http.mockUnexpectedError()
+    simulateValidSubmit()
+    FormHelper.testMainError('Sucedio algo')
+    FormHelper.testUrl('/signup')
+  })
 })
