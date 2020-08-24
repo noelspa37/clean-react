@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import Styles from './login-styles.scss'
 import { Footer, Input, FormStatus, LoginHeader, SubmitButton } from '@/presentation/components'
-import Context from '@/presentation/contexts/form/form-context'
+import { FormContext, ApiContext } from '@/presentation/contexts'
 import { Validation } from '@/presentation/protocols/validation'
-import { Authentication, UpdateCurrentAccount } from '@/domain/usecases'
+import { Authentication } from '@/domain/usecases'
 
 type Props = {
   validation: Validation
   authentication: Authentication
-  updateCurrentAccount: UpdateCurrentAccount
 }
 
-const Login: React.FC<Props> = ({ validation, authentication, updateCurrentAccount }: Props) => {
+const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
   const history = useHistory()
-
+  const { setCurrentAccount } = useContext(ApiContext)
   const [state, setState] = useState({
     isLoading: false,
     isFormaInvalid: true,
@@ -52,7 +51,7 @@ const Login: React.FC<Props> = ({ validation, authentication, updateCurrentAccou
         email: state.email,
         password: state.password
       })
-      await updateCurrentAccount.save(account)
+      setCurrentAccount(account)
 
       history.replace('/')
     } catch (error) {
@@ -67,7 +66,7 @@ const Login: React.FC<Props> = ({ validation, authentication, updateCurrentAccou
   return (
     <div className={Styles.loginWrap}>
       <LoginHeader />
-      <Context.Provider value={{ state, setState }}>
+      <FormContext.Provider value={{ state, setState }}>
         <form data-testid='form' className={Styles.form} onSubmit={handleSubmit} >
           <h2>Login</h2>
           <Input type='email' name='email' placeholder='Digite su email' />
@@ -76,7 +75,7 @@ const Login: React.FC<Props> = ({ validation, authentication, updateCurrentAccou
           <Link data-testid='signup-link' to='/signup' className={Styles.link}>Crear contacto</Link>
           <FormStatus />
         </form>
-      </Context.Provider>
+      </FormContext.Provider>
       <Footer />
     </div >
   )

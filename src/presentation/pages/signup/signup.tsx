@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Styles from './signup-styles.scss'
 import { useHistory, Link } from 'react-router-dom'
 import { Footer, Input, FormStatus, LoginHeader, SubmitButton } from '@/presentation/components'
-import Context from '@/presentation/contexts/form/form-context'
+import { FormContext, ApiContext } from '@/presentation/contexts'
 import { Validation } from '@/presentation/protocols/validation'
-import { AddAccount, UpdateCurrentAccount } from '@/domain/usecases'
+import { AddAccount } from '@/domain/usecases'
 
 type Props = {
   validation: Validation
   addAccount: AddAccount
-  updateCurrentAccount: UpdateCurrentAccount
 }
 
-const SignUp: React.FC<Props> = ({ validation, addAccount, updateCurrentAccount }: Props) => {
+const SignUp: React.FC<Props> = ({ validation, addAccount }: Props) => {
   const history = useHistory()
-
+  const { setCurrentAccount } = useContext(ApiContext)
   const [state, setState] = useState({
     isLoading: false,
     isFormaInvalid: true,
@@ -62,7 +61,7 @@ const SignUp: React.FC<Props> = ({ validation, addAccount, updateCurrentAccount 
         password: state.password,
         passwordConfirmation: state.passwordConfirmation
       })
-      await updateCurrentAccount.save(account)
+      setCurrentAccount(account)
 
       history.replace('/')
     } catch (error) {
@@ -77,7 +76,7 @@ const SignUp: React.FC<Props> = ({ validation, addAccount, updateCurrentAccount 
   return (
     <div className={Styles.signupWrap}>
       <LoginHeader />
-      <Context.Provider value={{ state, setState }}>
+      <FormContext.Provider value={{ state, setState }}>
         <form data-testid='form' className={Styles.form} onSubmit={handleSubmit} >
           <h2>Registrar Cuenta</h2>
           <Input type='text' name='name' placeholder='Digite su nombre' />
@@ -88,7 +87,7 @@ const SignUp: React.FC<Props> = ({ validation, addAccount, updateCurrentAccount 
           <Link data-testid='login-link' replace to='/login' className={Styles.link}>Regresar a login</Link>
           <FormStatus />
         </form>
-      </Context.Provider>
+      </FormContext.Provider>
       <Footer />
     </div >
   )
