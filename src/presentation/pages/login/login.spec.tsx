@@ -8,11 +8,11 @@ import faker from 'faker'
 import { InvalidCredentialsError } from '@/domain/errors'
 import { Helper } from '@/presentation/test'
 import { ApiContext } from '@/presentation/contexts'
-import { AccountModel } from '@/domain/models'
+import { Authentication } from '@/domain/usecases'
 
 type SubTypes = {
   authenticationSpy: AuthenticationSpy
-  setCurrentAccountMock: (account: AccountModel) => void
+  setCurrentAccountMock: (account: Authentication.Model) => void
 }
 
 type SutParams = {

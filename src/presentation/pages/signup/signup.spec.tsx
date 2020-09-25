@@ -7,11 +7,11 @@ import { render, fireEvent, waitFor, screen } from '@testing-library/react'
 import { Helper, ValidationStub, AddAccountSpy } from '@/presentation/test'
 import { EmailInUseError } from '@/domain/errors'
 import { ApiContext } from '@/presentation/contexts'
-import { AccountModel } from '@/domain/models'
+import { AddAccount } from '@/domain/usecases'
 
 type SubTypes = {
   addAccountSpy: AddAccountSpy
-  setCurrentAccountMock: (account: AccountModel) => void
+  setCurrentAccountMock: (account: AddAccount.Model) => void
 }
 
 type SutParams = {
